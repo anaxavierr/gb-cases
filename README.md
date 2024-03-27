@@ -1,31 +1,36 @@
+**ESTE CASE POSSUI APENAS DADOS FICTICIOS**
+
 Cases Grupo Boticário no Data Hackers
+Este repositório contém soluções para os casos propostos pelo Grupo Boticário no evento Data Hackers.
+
 
 Instruções:
 
-item 1 (arquitetura_gb.pdf):
+Item 1 (arquitetura_gb.pdf):
+Neste item, foi definida uma arquitetura de referência com tecnologias de nuvem pública, preferencialmente AWS ou GCP. Os requisitos considerados foram:
 
-. Defina uma arquitetura de referência com tecnologias de alguma nuvem pública, preferencialmente AWS ou GCP. Você deve considerar os seguintes requisitos: • Permear as camadas de ingestão, processamento, armazenamento, consumo, análise, segurança e governança; • Substituição gradativa do cenário on-premises atual; • Incorporação de componentes e tecnologias que permitam a analisarmos dados em tempo real; • Que a arquitetura considere componentes que a habilitem a empresa organizar e fornecer dados para diferentes fins, tais como: Analytics, Data Science, API’s e serviços para integrações com aplicações. Ressaltando que necessariamente precisaremos manter a comunicação on-premises x cloud para diversas finalidades.
+Permear as camadas de ingestão, processamento, armazenamento, consumo, análise, segurança e governança;
+Substituição gradual do cenário on-premises atual;
+Incorporação de componentes e tecnologias para análise de dados em tempo real;
+Capacidade de organizar e fornecer dados para diferentes fins, como Analytics, Data Science, APIs e serviços para integrações com aplicações. Ressaltando que necessariamente precisaremos manter a comunicação on-premises x cloud para diversas finalidades.
 
-item 2 (dag_etl.py):
+Item 2 (dag_etl.py):
+Neste item, realizou-se a importação dos dados dos 3 arquivos em uma tabela criada no banco de dados de escolha. Posteriormente, foram modeladas 4 novas tabelas e implementados processos para transformações necessárias e inserção das seguintes visões nas tabelas:
 
-Realizar a importação dos dados dos 3 arquivos em uma tabela criada por você no banco de dados de sua escolha;
+Tabela 1: Consolidado de vendas por ano e mês;
+Tabela 2: Consolidado de vendas por marca e linha;
+Tabela 3: Consolidado de vendas por marca, ano e mês;
+Tabela 4: Consolidado de vendas por linha, ano e mês.
 
-Com os dados importados, modelar 4 novas tabelas e implementar processos que façam as transformações necessárias e insiram as seguintes visões nas tabelas:
+Item 3 (spotify_podcasts):
+Neste item, foram realizados os seguintes passos:
 
-a. Tabela 1: Consolidado de vendas por ano e mês; b. Tabela 2: Consolidado de vendas por marca e linha; c. Tabela 3: Consolidado de vendas por marca, ano e mês; d. Tabela 4: Consolidado de vendas por linha, ano e mês;
+Passo 1: Criação de um método para realizar uma pesquisa no Spotify via requests e trazer os primeiros 50 resultados referente a podcasts procurando pelo termo “data hackers” e criação de uma tabela com os campos especificados.
+Passo 2: Extração de dados de todos os episódios lançados pelos Data Hackers via requests.
+Passo 3: Ingestão do resultado do Passo 2 em duas tabelas seguindo os critérios especificados.
+Passo 4: Inclusão apenas dos campos necessários para as tabelas do Passo 3.
 
-item 3: (spotify_podcasts)
 
-Passo 1 - Criar um método para realizar uma pesquisa no Spotify via requests e trazer os primeiros 50 resultados referente a podcasts procurando pelo termo “data hackers” e criar uma tabela apenas com os campos abaixo:
+Como executar:
 
-name = Nome do poscast. description = Descrição sobre o programa de poscast. id = Identificador único do programa. total_episodes = Total de episódios lançados até o momento.
-
-Passo 2 - Realizar a extração de dados de todos os episódios lançados pelos Data Hackers via requests.
-
-Passo 3 - Ingerir resultado do Passo 2 em duas tabelas seguindo os critérios abaixo:
-
-a. Resultado de todos os episódios.
-
-b. Apenas com os resultados dos episódios com participação do Grupo Boticário.
-
-Passo 4 - Levar apenas os campos abaixo para as tabelas a e b do Passo 3: id - Identificação do episódio. name - Nome do episódio. description - Descrição do episódio. release_date - Data de lançamento do episódio. duration_ms - Duração em milissegundos do episódio. language - Idioma do episódio. explicit - Flag booleano se o episódio possui conteúdo explícito. type - O tipo de faixa de áudio (Ex: música / programa)
+Para executar os scripts e soluções fornecidos neste repositório, siga as instruções fornecidas em cada item e verifique os requisitos de ambiente e configuração necessários. Certifique-se de ter as credenciais adequadas e as permissões necessárias para acessar os serviços da nuvem pública escolhida.
